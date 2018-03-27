@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ex -o pipefail
+
+cd /build
+make
+
+mv fs.img xv6.img /out

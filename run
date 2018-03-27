@@ -1,0 +1,5 @@
+#!/bin/bash
+set -ex -o pipefail
+
+docker run -it -v $PWD/.:/build -v /tmp/xv6-out:/out xv6 /build/build
+qemu-system-i386 -drive file=/tmp/xv6-out/fs.img,index=1,media=disk,format=raw -drive file=/tmp/xv6-out/xv6.img,index=0,media=disk,format=raw -m 1024
